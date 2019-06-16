@@ -15,9 +15,18 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        applicationVariants.all { variant ->
+            variant.buildConfigField "String", "API_KEY", "\"" + getProps()['API_KEY'] + "\""
+        }
     }
 }
 
+// secret key for weather API
+def getProps() {
+    def Properties props = new Properties()
+    props.load(new FileInputStream(new File('secret.properties')))
+    return props
+}
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
