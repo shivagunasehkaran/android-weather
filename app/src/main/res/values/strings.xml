@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">My Application</string>
+
+    <string name="app_name">Weather</string>
+
+    <string name="db_name">weather_db</string>
+
+    <string name="country_prompt">Choose a city</string>
+    <string name="empty_city">Please enter city name.</string>
+    <string name="city_inserted">City Added Successfully.</string>
+
 </resources>
