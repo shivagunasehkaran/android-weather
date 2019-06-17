@@ -14,7 +14,7 @@ public class WeatherPOJO {
 
     @SerializedName("wind") private Wind mWind;
 
-    @SerializedName("dt") private String mDate;
+    @SerializedName("dt") private Long mDate;
 
     @SerializedName("name") private String mName;
 
@@ -34,7 +34,7 @@ public class WeatherPOJO {
         return mSys;
     }
 
-    public String getDate() {
+    public Long getDate() {
         return mDate;
     }
 

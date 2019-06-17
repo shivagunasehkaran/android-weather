@@ -42,15 +42,15 @@ public final class StringFormatterUtil {
 
     public static String getDate(WeatherPOJO weatherResponse) {
         if (weatherResponse.getDate() != null) {
-            return getConvertedDate(Long.parseLong(weatherResponse.getDate()));
+            return getConvertedDate(weatherResponse.getDate());
         }
         return null;
     }
 
-    private static String getConvertedDate(long timestamp) {
+    private static String getConvertedDate(long time) {
         Calendar cal = Calendar.getInstance(Locale.ENGLISH);
-        cal.setTimeInMillis(timestamp * 1000L);
-        return DateFormat.format("dd mmm yyyy", cal).toString();
+        cal.setTimeInMillis(time * 1000);
+        return DateFormat.format("dd-MM-yyyy HH:mm:ss", cal).toString();
     }
 
     public static String getDescription(WeatherPOJO weatherResponse) {
