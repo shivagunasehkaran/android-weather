@@ -40,7 +40,8 @@ public class WeatherApiModel implements Callback<WeatherPOJO> {
         }
     }
 
-    @Override public void onFailure(Throwable t) {
-        Log.d("response:", "" + t.getMessage());
+    @Override public void onFailure(Throwable error) {
+        Log.d("response:", "" + error.getMessage());
+        iWeatherResponseListener.onError(error.getMessage());
     }
 }

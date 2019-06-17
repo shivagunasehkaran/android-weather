@@ -6,7 +6,7 @@ public interface IWeatherResponseListener {
 
     void onSuccess(WeatherPOJO weatherPOJO);
 
-    void onError();
+    void onError(String message);
 
     void loadOfflineData();
 

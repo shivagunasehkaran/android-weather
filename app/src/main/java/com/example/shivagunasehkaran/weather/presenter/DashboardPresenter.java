@@ -89,7 +89,8 @@ public class DashboardPresenter extends BasePresenter
         iDashboardView.showWeather(weatherPOJO);
     }
 
-    @Override public void onError() {
+    @Override public void onError(String message) {
+        iDashboardView.showToast(message);
     }
 
     @Override public void loadOfflineData() {
