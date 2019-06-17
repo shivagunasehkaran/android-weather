@@ -76,10 +76,6 @@ public class DashboardActivity extends BaseActivity implements IDashboardView {
 
     @OnClick(R.id.btnSubmit)
     public void onButtonClick(View view) {
-        Toast.makeText(getApplicationContext(),
-                "Selected state : " + String.valueOf(spinner.getSelectedItem()), Toast.LENGTH_SHORT)
-                .show();
-
         iDashboardPresenter.dashboardApiCall(String.valueOf(spinner.getSelectedItem()),
                 cities.get(spinner.getSelectedItemPosition()));
     }
