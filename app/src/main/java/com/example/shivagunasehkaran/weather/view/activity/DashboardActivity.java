@@ -4,7 +4,8 @@ import android.arch.lifecycle.Observer;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,10 +17,12 @@ import com.example.shivagunasehkaran.weather.data.db.WeatherRepository;
 import com.example.shivagunasehkaran.weather.model.WeatherPOJO;
 import com.example.shivagunasehkaran.weather.presenter.DashboardPresenter;
 import com.example.shivagunasehkaran.weather.presenter.iPresenter.IDashboardPresenter;
+import com.example.shivagunasehkaran.weather.utils.AddressBuilderUtil;
 import com.example.shivagunasehkaran.weather.utils.NavigatorUtils;
 import com.example.shivagunasehkaran.weather.utils.StringFormatterUtil;
 import com.example.shivagunasehkaran.weather.view.adapter.CustomArrayAdapter;
 import com.example.shivagunasehkaran.weather.view.iView.IDashboardView;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -35,20 +38,29 @@ public class DashboardActivity extends BaseActivity implements IDashboardView {
     @BindView(R.id.spinner)
     Spinner spinner;
 
+    @BindView(R.id.weather_icon)
+    ImageView weatherIcon;
+
+    @BindView(R.id.text_city)
+    TextView cityName;
+
+    @BindView(R.id.text_temperature)
+    TextView temperature;
+
+    @BindView(R.id.text_wind_speed)
+    TextView windSpeed;
+
+    @BindView(R.id.text_updated_date)
+    TextView date;
+
+    @BindView(R.id.text_description)
+    TextView description;
+
+    @BindView(R.id.btn_add)
+    TextView btnAdd;
+
     @BindView(R.id.btnSubmit)
-    Button btnSubmit;
-
-    @BindView(R.id.btnAdd)
-    Button btnAdd;
-
-    @BindView(R.id.temp_text)
-    TextView temp_text;
-
-    @BindView(R.id.date_text)
-    TextView date_text;
-
-    @BindView(R.id.text_time)
-    TextView text_time;
+    LinearLayout btnSubmit;
 
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,9 +85,17 @@ public class DashboardActivity extends BaseActivity implements IDashboardView {
     }
 
     @Override public void showWeather(WeatherPOJO weatherResponse) {
-        temp_text.setText(StringFormatterUtil.getDescription(weatherResponse));
-        date_text.setText(StringFormatterUtil.getTemperature(weatherResponse));
-        text_time.setText(StringFormatterUtil.getTemperature(weatherResponse));
+        Picasso.with(this)
+                .load(AddressBuilderUtil
+                        .getIconAddress(weatherResponse.getWeather().get(0).getIcon()))
+                .fit()
+                .centerCrop()
+                .into(weatherIcon);
+        cityName.setText(StringFormatterUtil.getPlace(weatherResponse));
+        temperature.setText(StringFormatterUtil.getTemperature(weatherResponse));
+        windSpeed.setText(StringFormatterUtil.getWind(weatherResponse));
+        date.setText(StringFormatterUtil.getDate(weatherResponse));
+        description.setText(StringFormatterUtil.getDescription(weatherResponse));
     }
 
     @Override public void setSpinnerAdapter(List<City> cities) {
@@ -114,10 +134,7 @@ public class DashboardActivity extends BaseActivity implements IDashboardView {
         });
     }
 
-    /*
-     * New note to be added
-     * */
-    @OnClick(R.id.btnAdd)
+    @OnClick(R.id.btn_add)
     public void redirect(View view) {
         NavigatorUtils.redirectToAddCityScreen(this);
     }
