@@ -2,9 +2,8 @@ package com.example.shivagunasehkaran.weather.view.activity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.LinearLayout;
 
 import com.example.shivagunasehkaran.weather.R;
 import com.example.shivagunasehkaran.weather.presenter.AddCityPresenter;
@@ -19,14 +18,11 @@ public class AddCityActivity extends BaseActivity implements IAddCityView {
 
     private IAddCityPresenter iAddCityPresenter = null;
 
-    @BindView(R.id.edit_title)
-    EditText edit_title;
+    @BindView(R.id.text_city)
+    EditText cityText;
 
-    @BindView(R.id.text_time)
-    TextView text_time;
-
-    @BindView(R.id.btnAdd)
-    Button btnAdd;
+    @BindView(R.id.btnSubmit)
+    LinearLayout btnSubmit;
 
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,12 +33,11 @@ public class AddCityActivity extends BaseActivity implements IAddCityView {
         return R.layout.activity_add_note;
     }
 
-    @OnClick(R.id.btnAdd)
+    @OnClick(R.id.btnSubmit)
     public void onButtonClick(View view) {
-        String cityName = edit_title.getText().toString();
+        String cityName = cityText.getText().toString();
         iAddCityPresenter.addNewCity(cityName);
     }
-
 
     @Override public void navigateToDashBoard() {
         NavigatorUtils.redirectToDashboardScreen(this);
