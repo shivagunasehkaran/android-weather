@@ -1,14 +1,10 @@
 package com.example.shivagunasehkaran.weather.view.activity;
 
-import android.arch.persistence.room.Room;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
-import com.example.shivagunasehkaran.weather.R;
-import com.example.shivagunasehkaran.weather.data.db.WeatherDb;
-import com.example.shivagunasehkaran.weather.data.db.WeatherRepository;
 import com.example.shivagunasehkaran.weather.utils.ConnectionUtils;
 import com.example.shivagunasehkaran.weather.view.iView.IBaseView;
 
@@ -34,7 +30,6 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
     @Override public boolean isNetworkAvail() {
         return ConnectionUtils.isNetworkConnected(this);
     }
-
 
     @Override public void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
