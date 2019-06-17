@@ -66,14 +66,14 @@
                     style="@style/TextAppearance.AppCompat.Title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="Wrocław, PL"/>
+                    />
 
                 <TextView
                     android:id="@+id/text_temperature"
                     style="@style/TextAppearance.AppCompat.Large"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="17 °C"/>
+                    />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -85,10 +85,10 @@
                         style="@style/TextAppearance.AppCompat.Body2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        tools:text="18 °C"/>
+                        />
 
                     <Space
-                        android:layout_width="@dimen/padding_small"
+                        android:layout_width="@dimen/padding_large"
                         android:layout_height="match_parent"/>
 
                     <TextView
@@ -104,7 +104,7 @@
                     style="@style/TextAppearance.AppCompat.Body1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="Mostly cloudy"/>
+                    />
 
             </LinearLayout>
 
@@ -124,7 +124,8 @@
         android:text="@string/btn_add"
         android:textAlignment="center"
         android:textColor="@color/spinner_color"
-        android:textSize="@dimen/font_x_medium_large"/>
+        android:textSize="@dimen/font_x_medium_large"
+        android:textStyle="bold"/>
 
     <LinearLayout
         android:id="@+id/btnSubmit"

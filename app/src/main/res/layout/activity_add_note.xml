@@ -13,8 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:ems="10"
-        android:inputType="text"
-        android:text="@string/enter_city"/>
+        android:hint="@string/city_hint"
+        android:inputType="text"/>
 
     <LinearLayout
         android:id="@+id/btnSubmit"

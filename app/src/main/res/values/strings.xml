@@ -5,11 +5,13 @@
     <string name="db_name">weather_db</string>
 
     <string name="weather_icon">weather icon</string>
-    <string name="country_prompt">Choose a city</string>
-    <string name="enter_city">Enter City</string>
+    <string name="country_prompt">Select City</string>
+    <string name="enter_city">Provide city name.</string>
+    <string name="city_hint">Enter City</string>
     <string name="city_inserted">City Added Successfully.</string>
 
     <string name="btn_add">ADD</string>
     <string name="btn_submit">GET WEATHER</string>
+
 
 </resources>
