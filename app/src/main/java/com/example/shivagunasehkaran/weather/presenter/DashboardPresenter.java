@@ -2,8 +2,6 @@ package com.example.shivagunasehkaran.weather.presenter;
 
 import com.google.gson.Gson;
 
-import android.util.Log;
-
 import com.example.shivagunasehkaran.weather.data.remote.WeatherApiModel;
 import com.example.shivagunasehkaran.weather.data.callback.IWeatherResponseListener;
 import com.example.shivagunasehkaran.weather.data.db.City;
@@ -43,9 +41,7 @@ public class DashboardPresenter extends BasePresenter
         WeatherReport weatherReport = iDashboardView.fetchWeatherReportWithCityId(cityId);
 
         if (weatherReport != null) {
-            Log.d("weatherReport", weatherReport.getData());
-
-            //TODO:: String to pojo...
+            // Convert String to Pojo
             Gson gsonObj = new Gson();
             WeatherPOJO weatherPOJO = gsonObj.fromJson(weatherReport.getData(), WeatherPOJO.class);
 
@@ -79,7 +75,7 @@ public class DashboardPresenter extends BasePresenter
             updateFlag = false;
         }
 
-        //TODO:POJO TO STRING....
+        // Convert Pojo to String
         Gson gsonObj = new Gson();
         String json = gsonObj.toJson(weatherPOJO);
 
