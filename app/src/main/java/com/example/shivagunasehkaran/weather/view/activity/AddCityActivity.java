@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.example.shivagunasehkaran.weather.R;
 import com.example.shivagunasehkaran.weather.presenter.AddCityPresenter;
@@ -36,7 +37,11 @@ public class AddCityActivity extends BaseActivity implements IAddCityView {
     @OnClick(R.id.btnSubmit)
     public void onButtonClick(View view) {
         String cityName = cityText.getText().toString();
-        iAddCityPresenter.addNewCity(cityName);
+        if (cityName.equals("")) {
+            iAddCityPresenter.addNewCity(cityName);
+        } else {
+            Toast.makeText(this, getString(R.string.enter_city), Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override public void navigateToDashBoard() {
