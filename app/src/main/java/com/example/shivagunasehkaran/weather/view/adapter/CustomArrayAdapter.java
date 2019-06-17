@@ -48,11 +48,8 @@ public class CustomArrayAdapter extends ArrayAdapter<String> {
         final View view = mInflater.inflate(mResource, parent, false);
 
         TextView offTypeTv = (TextView) view.findViewById(R.id.spinnerText);
-
         City cities = city.get(position);
-
         offTypeTv.setText(cities.getCityName());
-
         return view;
     }
 }

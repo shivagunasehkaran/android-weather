@@ -34,14 +34,12 @@ public class WeatherApiModel implements Callback<WeatherPOJO> {
         if (response != null) {
             if (response.isSuccess()) {
                 WeatherPOJO weatherPOJO = response.body();
-                Log.d("response::", "" + weatherPOJO.getName());
                 iWeatherResponseListener.onSuccess(weatherPOJO);
             }
         }
     }
 
     @Override public void onFailure(Throwable error) {
-        Log.d("response:", "" + error.getMessage());
         iWeatherResponseListener.onError(error.getMessage());
     }
 }
