@@ -37,7 +37,7 @@ public class AddCityActivity extends BaseActivity implements IAddCityView {
     @OnClick(R.id.btnSubmit)
     public void onButtonClick(View view) {
         String cityName = cityText.getText().toString();
-        if (cityName.equals("")) {
+        if (!cityName.equals("")) {
             iAddCityPresenter.addNewCity(cityName);
         } else {
             Toast.makeText(this, getString(R.string.enter_city), Toast.LENGTH_SHORT).show();
