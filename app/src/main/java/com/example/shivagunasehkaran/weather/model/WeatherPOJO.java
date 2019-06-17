@@ -10,6 +10,12 @@ public class WeatherPOJO {
 
     @SerializedName("main") private Main mMain;
 
+    @SerializedName("sys") private Sys mSys;
+
+    @SerializedName("wind") private Wind mWind;
+
+    @SerializedName("dt") private String mDate;
+
     @SerializedName("name") private String mName;
 
     @SerializedName("cod") private int mCode;
@@ -22,6 +28,18 @@ public class WeatherPOJO {
 
     public Main getMain() {
         return mMain;
+    }
+
+    public Sys getSys() {
+        return mSys;
+    }
+
+    public String getDate() {
+        return mDate;
+    }
+
+    public Wind getWind() {
+        return mWind;
     }
 
     public String getName() {
