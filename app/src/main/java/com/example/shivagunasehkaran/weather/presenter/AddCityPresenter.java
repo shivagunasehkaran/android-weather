@@ -31,7 +31,7 @@ public class AddCityPresenter extends BasePresenter implements IAddCityPresenter
             iAddCityView.navigateToDashBoard();
 
         } else {
-            iAddCityView.showToast(iView.getContext().getString(R.string.empty_city));
+            iAddCityView.showToast(iView.getContext().getString(R.string.enter_city));
         }
     }
 

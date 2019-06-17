@@ -6,7 +6,7 @@
 
     <string name="weather_icon">weather icon</string>
     <string name="country_prompt">Choose a city</string>
-    <string name="empty_city">Please enter city name.</string>
+    <string name="enter_city">Enter City</string>
     <string name="city_inserted">City Added Successfully.</string>
 
     <string name="btn_add">ADD</string>
