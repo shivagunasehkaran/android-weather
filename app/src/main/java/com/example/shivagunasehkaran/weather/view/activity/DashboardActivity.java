@@ -8,7 +8,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.shivagunasehkaran.weather.R;
 import com.example.shivagunasehkaran.weather.data.db.City;
@@ -67,7 +66,6 @@ public class DashboardActivity extends BaseActivity implements IDashboardView {
 
         weatherRepository = new WeatherRepository(this);
         iDashboardPresenter = new DashboardPresenter(this);
-
     }
 
     @Override protected int getLayoutId() {
@@ -101,7 +99,7 @@ public class DashboardActivity extends BaseActivity implements IDashboardView {
             this.cities = cities;
             spinner.setAdapter(adapter);
         } else {
-            //Toast.makeText(this, "enters else", Toast.LENGTH_LONG).show();
+
         }
     }
 
