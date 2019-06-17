@@ -4,63 +4,144 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     android:orientation="vertical"
+    android:weightSum="1"
     tools:context="com.example.shivagunasehkaran.weather.view.activity.DashboardActivity">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/spinnerView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_medium"
+        android:layout_weight="0.1"
+        android:background="@color/spinner_color"
         android:orientation="horizontal">
 
         <Spinner
             android:id="@+id/spinner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:prompt="@string/country_prompt"/>
-
-        <Button
-            android:id="@+id/btnSubmit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Submit"/>
-
-        <Button
-            android:id="@+id/btnAdd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Add"/>
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:id="@+id/weatherDetailView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="0.7"
+        android:background="@color/colorPrimary"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/temp_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_xxxxxxxlarge"
-            android:text="Temp."
-            android:textColor="@color/edit_title"
-            android:textSize="@dimen/font_small"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"
+            android:layout_marginTop="@dimen/padding_large"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:background="@drawable/border_shape"
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:id="@+id/weather_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:contentDescription="@string/weather_icon"
+                android:minWidth="80dp"
+                android:minHeight="80dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding_medium_large"
+                android:layout_marginLeft="@dimen/padding_medium_large"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/text_city"
+                    style="@style/TextAppearance.AppCompat.Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Wrocław, PL"/>
+
+                <TextView
+                    android:id="@+id/text_temperature"
+                    style="@style/TextAppearance.AppCompat.Large"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="17 °C"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/text_wind_speed"
+                        style="@style/TextAppearance.AppCompat.Body2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="18 °C"/>
+
+                    <Space
+                        android:layout_width="@dimen/padding_small"
+                        android:layout_height="match_parent"/>
+
+                    <TextView
+                        android:id="@+id/text_updated_date"
+                        style="@style/TextAppearance.AppCompat.Body1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/text_description"
+                    style="@style/TextAppearance.AppCompat.Body1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Mostly cloudy"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/btn_add"
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="right"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_weight="0.1"
+        android:gravity="fill_vertical"
+        android:text="@string/btn_add"
+        android:textAlignment="center"
+        android:textColor="@color/spinner_color"
+        android:textSize="@dimen/font_x_medium_large"/>
+
+    <LinearLayout
+        android:id="@+id/btnSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_small_medium"
+        android:layout_weight="0.1"
+        android:background="@color/spinner_color"
+        android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/date_text"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_xxxxxxxlarge"
-            android:textColor="@color/edit_title"
-            android:textSize="@dimen/font_small"/>
-
-        <TextView
-            android:id="@+id/text_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_xxxxxxxlarge"
-            android:textColor="@color/edit_title"
-            android:textSize="@dimen/font_small"/>
+            android:layout_gravity="center_vertical"
+            android:text="@string/btn_submit"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/font_xmedium"/>
 
     </LinearLayout>
 
